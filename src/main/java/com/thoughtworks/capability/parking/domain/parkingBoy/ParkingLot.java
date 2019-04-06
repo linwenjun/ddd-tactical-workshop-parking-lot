@@ -1,6 +1,4 @@
-package com.thoughtworks.capability.parking.domain.parkingLot;
-
-import com.thoughtworks.capability.parking.domain.ticket.Ticket;
+package com.thoughtworks.capability.parking.domain.parkingBoy;
 
 import java.util.ArrayList;
 import java.util.List;

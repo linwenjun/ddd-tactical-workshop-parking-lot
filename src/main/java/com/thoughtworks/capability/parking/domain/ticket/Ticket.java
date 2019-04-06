@@ -1,6 +1,6 @@
 package com.thoughtworks.capability.parking.domain.ticket;
 
-import com.thoughtworks.capability.parking.domain.parkingLot.LicensePlate;
+import com.thoughtworks.capability.parking.domain.parkingBoy.LicensePlate;
 import com.thoughtworks.capability.parking.domain.shared.DomainEntity;
 
 public class Ticket implements DomainEntity<Ticket> {

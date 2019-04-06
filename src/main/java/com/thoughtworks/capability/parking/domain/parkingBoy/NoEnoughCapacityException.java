@@ -1,4 +1,4 @@
-package com.thoughtworks.capability.parking.domain.parkingLot;
+package com.thoughtworks.capability.parking.domain.parkingBoy;
 
 public class NoEnoughCapacityException extends RuntimeException {
 

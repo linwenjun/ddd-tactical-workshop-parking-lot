@@ -5,13 +5,10 @@ package com.thoughtworks.capability.parking.interfaces.console;
 
 import com.thoughtworks.capability.parking.application.ParkingService;
 import com.thoughtworks.capability.parking.application.impl.ParkingServiceImpl;
-import com.thoughtworks.capability.parking.domain.parkingLot.*;
+import com.thoughtworks.capability.parking.domain.parkingBoy.*;
 import com.thoughtworks.capability.parking.domain.ticket.TicketRepository;
 import com.thoughtworks.capability.parking.infrastructure.memoryRepository.ParkingBoyRepositoryMemoryImpl;
 import com.thoughtworks.capability.parking.infrastructure.memoryRepository.TicketRepositoryMemoryImpl;
-
-import java.util.Arrays;
-import java.util.List;
 
 public class App {
     public String getGreeting() {

@@ -1,7 +1,7 @@
 package com.thoughtworks.capability.parking.application.impl;
 
 import com.thoughtworks.capability.parking.application.ParkingService;
-import com.thoughtworks.capability.parking.domain.parkingLot.*;
+import com.thoughtworks.capability.parking.domain.parkingBoy.*;
 import com.thoughtworks.capability.parking.domain.ticket.Ticket;
 import com.thoughtworks.capability.parking.domain.ticket.TicketId;
 import com.thoughtworks.capability.parking.domain.ticket.TicketRepository;

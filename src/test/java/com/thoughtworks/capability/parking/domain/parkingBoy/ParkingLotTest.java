@@ -1,6 +1,5 @@
-package com.thoughtworks.capability.parking.domain.parkingLot;
+package com.thoughtworks.capability.parking.domain.parkingBoy;
 
-import com.thoughtworks.capability.parking.domain.ticket.Ticket;
 import org.junit.Before;
 import org.junit.Test;
 

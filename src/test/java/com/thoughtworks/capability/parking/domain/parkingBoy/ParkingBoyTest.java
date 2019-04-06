@@ -1,4 +1,4 @@
-package com.thoughtworks.capability.parking.domain.parkingLot;
+package com.thoughtworks.capability.parking.domain.parkingBoy;
 
 import org.junit.Before;
 import org.junit.Test;
