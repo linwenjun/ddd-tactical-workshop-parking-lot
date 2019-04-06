@@ -12,7 +12,10 @@ plugins {
 
     // Apply the application plugin to add support for building an application
     id 'application'
+    id 'org.springframework.boot' version '2.1.4.RELEASE'
 }
+
+apply plugin: 'io.spring.dependency-management'
 
 repositories {
     maven {url 'http://maven.aliyun.com/nexus/content/groups/public/'}
@@ -20,13 +23,23 @@ repositories {
     mavenCentral()
 }
 
+group = 'com.thoughtworks.capability.parking'
+version = '0.0.1-SNAPSHOT'
+sourceCompatibility = '1.8'
+
 dependencies {
     // This dependency is found on compile classpath of this component and consumers.
     implementation 'com.google.guava:guava:27.0.1-jre'
 
     // Use JUnit test framework
-    testImplementation 'junit:junit:4.12'
-    testImplementation 'org.mockito:mockito-core:2.24.5'
+    implementation 'org.springframework.boot:spring-boot-starter-data-jpa'
+    implementation 'org.springframework.boot:spring-boot-starter-web'
+    runtimeOnly 'mysql:mysql-connector-java'
+    compileOnly 'org.projectlombok:lombok'
+    testImplementation 'org.springframework.boot:spring-boot-starter-test'
+    
+//    testImplementation 'junit:junit:4.12'
+//    testImplementation 'org.mockito:mockito-core:2.24.5'
 }
 
 // Define the main class for the application
