@@ -1,6 +1,8 @@
 package com.thoughtworks.capability.parking.domain.parkingLot;
 
-public class LicensePlate {
+import com.thoughtworks.capability.parking.domain.shared.ValueObject;
+
+public class LicensePlate implements ValueObject<LicensePlate> {
     private String number;
 
     public LicensePlate(String number) {
@@ -17,7 +19,15 @@ public class LicensePlate {
         return sameValueAs(other);
     }
 
+    @Override
     public boolean sameValueAs(LicensePlate other) {
         return other != null && number.equals(other.number);
+    }
+
+    @Override
+    public String toString() {
+        return "LicensePlate{" +
+                "number='" + number + '\'' +
+                '}';
     }
 }

@@ -19,13 +19,16 @@ public class ParkingBoyTest {
     public void setUp() throws Exception {
         firstParkable = mock(Parkable.class);
         secondParkable = mock(Parkable.class);
+
         parkableList = Arrays.asList(firstParkable, secondParkable);
-        parkingBoy = new ParkingBoy(parkableList);
+        parkingBoy = new ParkingBoy(new ParkingBoyId("pb01"), parkableList);
     }
 
     @Test
     public void first_parkable_should_be_called_when_park_a_car () {
         when(firstParkable.availableCapacity()).thenReturn(1);
+
+
         parkingBoy.park(new LicensePlate("川A88888"));
         verify(firstParkable, times(1)).park(any());
         verify(secondParkable, never()).park(any());

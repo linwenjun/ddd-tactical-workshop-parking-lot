@@ -3,6 +3,7 @@
  */
 package com.thoughtworks.capability.parking;
 
+import com.thoughtworks.capability.parking.interfaces.console.App;
 import org.junit.Test;
 import static org.junit.Assert.*;
 

@@ -1,12 +1,18 @@
 package com.thoughtworks.capability.parking.domain.parkingLot;
 
+import com.thoughtworks.capability.parking.domain.shared.DomainEntity;
+
+import java.util.Collections;
 import java.util.List;
 
-public class ParkingBoy implements Parkable{
+public class ParkingBoy implements Parkable, DomainEntity<ParkingBoy> {
 
-    List<Parkable> parkables;
+    private final ParkingBoyId parkingBoyId;
 
-    public ParkingBoy(List<Parkable> parkables) {
+    private final List<Parkable> parkables;
+
+    public ParkingBoy(ParkingBoyId parkingBoyId, List<Parkable> parkables) {
+        this.parkingBoyId = parkingBoyId;
         this.parkables = parkables;
     }
 
@@ -28,5 +34,26 @@ public class ParkingBoy implements Parkable{
     @Override
     public LicensePlate pick(LicensePlate ticket) {
         return null;
+    }
+
+    public ParkingBoyId getParkingBoyId() {
+        return parkingBoyId;
+    }
+
+    public List<Parkable> getParkables() {
+        return Collections.unmodifiableList(parkables);
+    }
+
+    @Override
+    public boolean sameIdentityAs(ParkingBoy other) {
+        return other != null && parkingBoyId.equals(other.parkingBoyId);
+    }
+
+    @Override
+    public String toString() {
+        return "ParkingBoy{\n" +
+                "\tparkingBoyId=" + parkingBoyId +
+                ",\n\tparkables=" + parkables +
+                '}';
     }
 }

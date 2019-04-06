@@ -5,7 +5,7 @@ import com.thoughtworks.capability.parking.domain.ticket.Ticket;
 import java.util.ArrayList;
 import java.util.List;
 
-public class ParkingLot  implements Parkable {
+public class ParkingLot implements Parkable {
     private final int capacity;
     private final List<LicensePlate> licensePlates;
 
@@ -38,5 +38,13 @@ public class ParkingLot  implements Parkable {
 
         licensePlates.remove(licensePlate);
         return licensePlate;
+    }
+
+    @Override
+    public String toString() {
+        return "ParkingLot{" +
+                "capacity=" + capacity +
+                ", licensePlates=" + licensePlates +
+                '}';
     }
 }
