@@ -1,0 +1,9 @@
+version: "2"
+services:
+  mysql-db:
+    image: mysql:5.7.25
+    environment:
+    - MYSQL_ROOT_PASSWORD=pass
+    - LANG=en_US.UTF-8
+    ports:
+    - 3306:3306
