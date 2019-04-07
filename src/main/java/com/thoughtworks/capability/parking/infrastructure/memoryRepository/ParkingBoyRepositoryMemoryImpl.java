@@ -11,7 +11,7 @@ public class ParkingBoyRepositoryMemoryImpl implements ParkingBoyRepository {
     {
         parkingBoys = new ArrayList<>();
 
-        List<Parkable> parkingLots = Arrays.asList(
+        List<ParkingLot> parkingLots = Arrays.asList(
                 new ParkingLot(1),
                 new ParkingLot(5)
         );
@@ -22,10 +22,11 @@ public class ParkingBoyRepositoryMemoryImpl implements ParkingBoyRepository {
     }
 
     @Override
-    public Optional<ParkingBoy> find(ParkingBoyId parkingBoyId) {
+    public ParkingBoy find(ParkingBoyId parkingBoyId) {
         return parkingBoys.stream()
                 .filter(parkingBoy -> parkingBoy.getParkingBoyId().equals(parkingBoyId))
-                .findFirst();
+                .findFirst()
+                .get();
     }
 
     @Override

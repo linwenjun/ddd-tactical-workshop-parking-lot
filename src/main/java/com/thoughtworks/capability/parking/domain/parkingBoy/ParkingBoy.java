@@ -1,24 +1,36 @@
 package com.thoughtworks.capability.parking.domain.parkingBoy;
 
 import com.thoughtworks.capability.parking.domain.shared.DomainEntity;
+import lombok.NoArgsConstructor;
 
+import javax.persistence.*;
 import java.util.Collections;
 import java.util.List;
 
+@Entity
+@Table
+@NoArgsConstructor
 public class ParkingBoy implements Parkable, DomainEntity<ParkingBoy> {
 
-    private final ParkingBoyId parkingBoyId;
+    @EmbeddedId
+    private ParkingBoyId parkingBoyId;
 
-    private final List<Parkable> parkables;
+    @OneToMany(
+            cascade = CascadeType.ALL,
+            orphanRemoval = true
+    )
+    @JoinColumn(name = "parking_boy_id")
+    private List<ParkingLot> parkingLots;
 
-    public ParkingBoy(ParkingBoyId parkingBoyId, List<Parkable> parkables) {
+
+    public ParkingBoy(ParkingBoyId parkingBoyId, List<ParkingLot> parkingLots) {
         this.parkingBoyId = parkingBoyId;
-        this.parkables = parkables;
+        this.parkingLots = parkingLots;
     }
 
     @Override
     public void park(LicensePlate licensePlate) {
-        Parkable first = parkables.stream()
+        Parkable first = parkingLots.stream()
                 .filter(parkable -> parkable.availableCapacity() > 0)
                 .findFirst()
                 .orElseThrow(NoEnoughCapacityException::new);
@@ -40,8 +52,8 @@ public class ParkingBoy implements Parkable, DomainEntity<ParkingBoy> {
         return parkingBoyId;
     }
 
-    public List<Parkable> getParkables() {
-        return Collections.unmodifiableList(parkables);
+    public List<ParkingLot> getParkingLot() {
+        return Collections.unmodifiableList(parkingLots);
     }
 
     @Override
@@ -53,7 +65,7 @@ public class ParkingBoy implements Parkable, DomainEntity<ParkingBoy> {
     public String toString() {
         return "ParkingBoy{\n" +
                 "\tparkingBoyId=" + parkingBoyId +
-                ",\n\tparkables=" + parkables +
+                ",\n\tparkingLots=" + parkingLots +
                 '}';
     }
 }

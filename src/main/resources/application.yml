@@ -3,7 +3,7 @@ spring:
     url: jdbc:mysql://localhost:3306/parking_service?noAccessToProcedureBodies=true&createDatabaseIfNotExist=true&m=yes&characterEncoding=UTF-8&connectTimeout=30000&useSSL=false&socketTimeout=30000&autoReconnect=true&maxReconnects=10&initialTimeout=10
     username: root
     password: pass
-    driver-class-name: com.mysql.jdbc.Driver
+    driver-class-name: com.mysql.cj.jdbc.Driver
     connection-test-query: "SELECT 1 FROM DUAL"
     test-while-idle: true
     test-on-borrow: true

@@ -1,17 +1,26 @@
 package com.thoughtworks.capability.parking.domain.parkingBoy;
 
 import com.thoughtworks.capability.parking.domain.shared.ValueObject;
+import lombok.NoArgsConstructor;
 
+import javax.persistence.Column;
+import javax.persistence.Embeddable;
+
+@Embeddable
 public class ParkingBoyId implements ValueObject<ParkingBoyId> {
 
-    private final String uuid;
+    @Column(name = "parking_boy_id")
+    private String id;
 
-    public ParkingBoyId(String uuid) {
-        this.uuid = uuid;
+    public ParkingBoyId() {
     }
 
-    public String getUuid() {
-        return uuid;
+    public ParkingBoyId(String id) {
+        this.id = id;
+    }
+
+    public String getId() {
+        return id;
     }
 
     @Override
@@ -27,13 +36,16 @@ public class ParkingBoyId implements ValueObject<ParkingBoyId> {
 
     @Override
     public boolean sameValueAs(ParkingBoyId other) {
-        return other != null && uuid.equals(other.uuid);
+        return other != null && id.equals(other.id);
     }
 
     @Override
     public String toString() {
-        return "ParkingBoyId{" +
-                "uuid='" + uuid + '\'' +
-                '}';
+        return id;
+    }
+
+    @Override
+    public int hashCode() {
+        return id.hashCode();
     }
 }

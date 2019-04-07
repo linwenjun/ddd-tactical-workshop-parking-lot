@@ -1,6 +1,8 @@
 package com.thoughtworks.capability.parking.domain.shared;
 
-public interface DomainEntity<T> {
+import java.io.Serializable;
+
+public interface DomainEntity<T> extends Serializable {
 
     boolean sameIdentityAs(T other);
 }
