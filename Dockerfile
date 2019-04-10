@@ -1,3 +1,5 @@
 FROM openjdk:8u201-jre-alpine3.9
 
-# openjdk:11.0.3-jre-slim-stretch
+ADD build/libs/parking-lot-0.0.1-SNAPSHOT.jar /app.jar
+
+ENTRYPOINT ["java","-jar","/app.jar"]
