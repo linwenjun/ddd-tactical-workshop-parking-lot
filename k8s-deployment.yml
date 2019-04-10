@@ -1,0 +1,36 @@
+apiVersion: v1
+kind: Service
+metadata:
+  name: parking-service
+  labels:
+    app: parking-service
+spec:
+  ports:
+  - port: 8080
+    name: http
+  selector:
+    app: parking-service
+---
+apiVersion: extensions/v1beta1
+kind: Deployment
+metadata:
+  name: parking-service
+spec:
+  replicas: 1
+  template:
+    metadata:
+      labels:
+        app: parking-service
+        version: v2
+    spec:
+      containers:
+      - name: parking-service
+        image: 076880417388.dkr.ecr.cn-northwest-1.amazonaws.com.cn/parking-service:latest
+        imagePullPolicy: Always
+        ports:
+        - containerPort: 8080
+        env:
+        - name: SPRING_PROFILES_ACTIVE
+          value: "prod"
+      imagePullSecrets:
+      - name: ecr-secret
