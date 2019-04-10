@@ -20,6 +20,7 @@ public class ParkingBoyDTOAssembler {
         return ParkingBoyDTO.builder()
                 .parkingBoyId(parkingBoy.getParkingBoyId().toString())
                 .parkingLots(parkingLotDTOList)
+                .name(parkingBoy.getName())
                 .build();
     };
 }

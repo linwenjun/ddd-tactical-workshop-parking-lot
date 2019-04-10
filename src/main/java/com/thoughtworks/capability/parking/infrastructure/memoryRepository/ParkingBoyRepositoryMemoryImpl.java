@@ -16,7 +16,7 @@ public class ParkingBoyRepositoryMemoryImpl implements ParkingBoyRepository {
                 new ParkingLot(5)
         );
 
-        ParkingBoy parkingBoy = new ParkingBoy(new ParkingBoyId("parking-boy-001"), parkingLots);
+        ParkingBoy parkingBoy = new ParkingBoy(new ParkingBoyId("parking-boy-001"), "张三", parkingLots);
 
         parkingBoys.add(parkingBoy);
     }

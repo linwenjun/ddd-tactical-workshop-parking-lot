@@ -10,4 +10,5 @@ import java.util.List;
 public class ParkingBoyDTO {
     private String parkingBoyId;
     private List<ParkingLotDTO> parkingLots;
+    private String name;
 }

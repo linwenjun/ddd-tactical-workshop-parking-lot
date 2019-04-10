@@ -16,6 +16,8 @@ public class ParkingBoy implements Parkable, DomainEntity<ParkingBoy> {
     @EmbeddedId
     private ParkingBoyId parkingBoyId;
 
+    private String name;
+
     @OneToMany(
             cascade = CascadeType.ALL,
             orphanRemoval = true
@@ -24,11 +26,11 @@ public class ParkingBoy implements Parkable, DomainEntity<ParkingBoy> {
     private List<ParkingLot> parkingLots;
 
 
-    public ParkingBoy(ParkingBoyId parkingBoyId, List<ParkingLot> parkingLots) {
+    public ParkingBoy(ParkingBoyId parkingBoyId, String name, List<ParkingLot> parkingLots) {
         this.parkingBoyId = parkingBoyId;
+        this.name = name;
         this.parkingLots = parkingLots;
     }
-
 
 
     @Override
@@ -75,5 +77,9 @@ public class ParkingBoy implements Parkable, DomainEntity<ParkingBoy> {
                 "\tparkingBoyId=" + parkingBoyId +
                 ",\n\tparkingLots=" + parkingLots +
                 '}';
+    }
+
+    public String getName() {
+        return name;
     }
 }

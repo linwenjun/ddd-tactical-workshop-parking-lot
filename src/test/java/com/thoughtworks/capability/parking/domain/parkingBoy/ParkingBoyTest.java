@@ -21,7 +21,7 @@ public class ParkingBoyTest {
         secondParkingBoy = mock(ParkingLot.class);
 
         parkableList = Arrays.asList(firstParkingBoy, secondParkingBoy);
-        parkingBoy = new ParkingBoy(new ParkingBoyId("pb01"), parkableList);
+        parkingBoy = new ParkingBoy(new ParkingBoyId("pb01"), name, parkableList);
     }
 
     @Test

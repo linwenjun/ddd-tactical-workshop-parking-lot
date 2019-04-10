@@ -7,6 +7,8 @@ import com.thoughtworks.capability.parking.infrastructure.jpaRepository.ParkingB
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
+import java.util.Optional;
+
 @Component
 public class ParkingBoyRepositoryJpaImpl implements ParkingBoyRepository {
 
@@ -22,7 +24,7 @@ public class ParkingBoyRepositoryJpaImpl implements ParkingBoyRepository {
         ParkingBoy parkingBoy = repository
                 .findById(parkingBoyId)
                 .orElse(null);
-        
+
         return parkingBoy;
     }
 
