@@ -1,17 +1,23 @@
 spring:
   datasource:
-    url: jdbc:mysql://localhost:3306/parking_service?noAccessToProcedureBodies=true&createDatabaseIfNotExist=true&m=yes&characterEncoding=UTF-8&connectTimeout=30000&useSSL=false&socketTimeout=30000&autoReconnect=true&maxReconnects=10&initialTimeout=10
-    username: root
-    password: pass
-    driver-class-name: com.mysql.cj.jdbc.Driver
-    connection-test-query: "SELECT 1 FROM DUAL"
-    test-while-idle: true
-    test-on-borrow: true
-    validation-interval: 600000
-    validation-query=: SELECT 1
-    max-idle: 3
-    maximum-pool-size: 5
+    url: jdbc:h2:mem:parking_service;DB_CLOSE_DELAY=-1;DB_CLOSE_ON_EXIT=FALSE;INIT=CREATE SCHEMA IF NOT EXISTS parking_service
+    platform: h2
+    username: sa
+    password:
+    driverClassName: org.h2.Driver
   jpa:
-    database-platform: org.hibernate.dialect.MySQLDialect
-    show-sql: true
-    generate-ddl: false
+    database-platform: org.hibernate.dialect.H2Dialect
+    hibernate:
+      ddl-auto: update
+    properties:
+      hibernate:
+        show_sql: true
+        use_sql_comments: true
+        format_sql: true
+  h2:
+    console:
+      enabled: true
+      path: /console
+      settings:
+        trace: false
+        web-allow-others: true
