@@ -13,12 +13,14 @@ import org.springframework.web.bind.annotation.RestController;
 @RequestMapping("parking-boy")
 public class ParkingController {
 
-    private final ParkingServiceFacade parkingServiceFacade;
+    private ParkingServiceFacade parkingServiceFacade;
 
     @Autowired
     public ParkingController(ParkingServiceFacadeImpl parkingService) {
         this.parkingServiceFacade = parkingService;
     }
+
+
 
 
     @GetMapping("/{parkingBoyId}")

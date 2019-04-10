@@ -1,0 +1,10 @@
+request:
+  method: GET
+  url: /parking-boy/1394cffaee6a
+response:
+  headers:
+    Content-Type: application/json;charset=UTF-8
+  status: 200
+  body:
+    parkingBoyId: 1394cffaee6a
+    name: 张三
