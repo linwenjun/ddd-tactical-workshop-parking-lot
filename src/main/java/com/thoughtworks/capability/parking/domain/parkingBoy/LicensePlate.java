@@ -6,6 +6,7 @@ public class LicensePlate implements ValueObject<LicensePlate> {
     private String number;
 
     public LicensePlate(String number) {
+
         this.number = number;
     }
 

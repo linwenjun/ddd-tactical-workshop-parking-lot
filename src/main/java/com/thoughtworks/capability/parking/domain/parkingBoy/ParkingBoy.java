@@ -6,6 +6,7 @@ import lombok.NoArgsConstructor;
 import javax.persistence.*;
 import java.util.Collections;
 import java.util.List;
+import java.util.stream.Collectors;
 
 @Entity
 @Table
@@ -28,8 +29,15 @@ public class ParkingBoy implements Parkable, DomainEntity<ParkingBoy> {
         this.parkingLots = parkingLots;
     }
 
+
+
     @Override
     public void park(LicensePlate licensePlate) {
+
+        List<Parkable> parkables = parkingLots.stream()
+                .map(parkingLot -> (Parkable) parkingLot)
+                .collect(Collectors.toList());
+
         Parkable first = parkingLots.stream()
                 .filter(parkable -> parkable.availableCapacity() > 0)
                 .findFirst()

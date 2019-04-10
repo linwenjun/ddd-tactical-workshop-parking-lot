@@ -1,7 +1,6 @@
 package com.thoughtworks.capability.parking.domain.parkingBoy;
 
 import com.thoughtworks.capability.parking.domain.shared.ValueObject;
-import lombok.NoArgsConstructor;
 
 import javax.persistence.Column;
 import javax.persistence.Embeddable;

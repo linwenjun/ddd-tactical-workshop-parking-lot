@@ -11,33 +11,33 @@ import static org.mockito.Mockito.*;
 
 public class ParkingBoyTest {
 
-    Parkable firstParkable, secondParkable;
-    List<Parkable> parkableList;
+    ParkingLot firstParkingBoy, secondParkingBoy;
+    List<ParkingLot> parkableList;
     ParkingBoy parkingBoy;
 
     @Before
     public void setUp() throws Exception {
-        firstParkable = mock(Parkable.class);
-        secondParkable = mock(Parkable.class);
+        firstParkingBoy = mock(ParkingLot.class);
+        secondParkingBoy = mock(ParkingLot.class);
 
-        parkableList = Arrays.asList(firstParkable, secondParkable);
+        parkableList = Arrays.asList(firstParkingBoy, secondParkingBoy);
         parkingBoy = new ParkingBoy(new ParkingBoyId("pb01"), parkableList);
     }
 
     @Test
     public void first_parkable_should_be_called_when_park_a_car () {
-        when(firstParkable.availableCapacity()).thenReturn(1);
+        when(firstParkingBoy.availableCapacity()).thenReturn(1);
 
 
         parkingBoy.park(new LicensePlate("川A88888"));
-        verify(firstParkable, times(1)).park(any());
-        verify(secondParkable, never()).park(any());
+        verify(firstParkingBoy, times(1)).park(any());
+        verify(secondParkingBoy, never()).park(any());
     }
 
     @Test(expected = NoEnoughCapacityException.class)
     public void first_parkable_should_not_be_called_when_no_available_capacity () {
-        when(firstParkable.availableCapacity()).thenReturn(0);
-        when(secondParkable.availableCapacity()).thenReturn(0);
+        when(firstParkingBoy.availableCapacity()).thenReturn(0);
+        when(secondParkingBoy.availableCapacity()).thenReturn(0);
         parkingBoy.park(new LicensePlate("川A88888"));
     }
 }
