@@ -25,4 +25,4 @@ spring:
         web-allow-others: true
 eureka:
   client:
-    service-url: http://eureka.ddd.school.thoughtworks.cn/eureka/
+    service-url: http://eureka-server:8080/eureka/
