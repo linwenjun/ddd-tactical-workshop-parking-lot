@@ -25,4 +25,5 @@ spring:
         web-allow-others: true
 eureka:
   client:
-    service-url: http://eureka-server:8080/eureka/
+    service-url:
+      defaultZone: http://eureka-server:8080/eureka/
