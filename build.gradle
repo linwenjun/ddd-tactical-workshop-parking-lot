@@ -24,6 +24,7 @@ plugins {
     // Apply the application plugin to add support for building an application
     id 'application'
     id 'org.springframework.boot' version '2.1.4.RELEASE'
+    id "com.gorylenko.gradle-git-properties" version "2.0.0"
 }
 
 apply plugin: 'io.spring.dependency-management'
@@ -71,6 +72,7 @@ dependencyManagement {
         mavenBom "org.springframework.cloud:spring-cloud-dependencies:${springCloudVersion}"
     }
 }
+
 
 
 // Define the main class for the application
