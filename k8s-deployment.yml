@@ -12,7 +12,7 @@ spec:
     spec:
       containers:
       - name: parking-service
-        image: 076880417388.dkr.ecr.cn-northwest-1.amazonaws.com.cn/parking-service:latest
+        image: DOCKER_IMAGE
         imagePullPolicy: Always
         ports:
         - containerPort: 8080
