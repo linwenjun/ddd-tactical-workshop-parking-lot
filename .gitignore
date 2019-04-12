@@ -81,3 +81,5 @@ gradle-app.setting
 *.iml
 
 out
+
+kube-config
