@@ -15,4 +15,4 @@ sudo docker tag parking-service:latest $DOCKER_IMAGE
 sudo docker push $DOCKER_REGISTRY/$SERVICE_NAME:latest
 sudo docker push $DOCKER_IMAGE
 
-sed "s/DOCKER_IMAGE/$DOCKER_IMAGE/g" | kubectl --kubeconfig $KUBE_CONFIG apply -f -
+sed "s/DOCKER_IMAGE/$DOCKER_IMAGE/g" k8s-deployment.yml | kubectl --kubeconfig $KUBE_CONFIG apply -f -
